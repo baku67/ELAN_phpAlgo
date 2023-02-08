@@ -76,22 +76,34 @@ class Voiture {
     // Fonction accélérer = décélerer si valeur négative
     public function accelerer($amount) {
         if ($this->_demarred) {
-            if ($amount > 0) {
+            // if ($amount > 0) {
                 $vitesseActuelle = $this->getVitesseActuelle();
                 $this->setVitesseActuelle($vitesseActuelle + $amount);
-                return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . "accélère de " . $amount . " km/h.";
-            }
-            // TODO Sortir le code décélrer dans une fonction propre "ralentir()"
-            elseif ($amount < 0) {
-                $vitesseActuelle = $this->getVitesseActuelle();
-                $this->setVitesseActuelle($vitesseActuelle - $amount);
-                return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . "décélère de " . $amount . " km/h.";
-            }
+                return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . " accélère de " . $amount . " km/h.";
+            // }
+            // // TODO Sortir le code décélrer dans une fonction propre "ralentir()"
+            // elseif ($amount < 0) {
+            //     $vitesseActuelle = $this->getVitesseActuelle();
+            //     $this->setVitesseActuelle($vitesseActuelle - $amount);
+            //     return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . " décélère de " . $amount . " km/h.";
+            // }
         }
         else {
             return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . " veut accélèrer de " . $amount . " km/h.<br>Pour accélèrer, il faut démarrer le véhicule " . $this->getMarque() . " " . $this->getModele() . " !";
         }
     }
+
+    public function ralentir($amount) {
+        if ($this->_demarred) {
+            $vitesseActuelle = $this->getVitesseActuelle();
+            $this->setVitesseActuelle($vitesseActuelle - $amount);
+            return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . " décélère de " . $amount . " km/h.";
+        }
+        else {
+            return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . " veut décélèrer de " . $amount . " km/h.<br>Pour décélèrer, il faut démarrer le véhicule " . $this->getMarque() . " " . $this->getModele() . " !";
+        }
+    }
+
 
     public function printVitesseActuelle() {
         echo "La vitesse du véhicule " . $this->getMarque() . " " . $this->getModele() . " est de " . $this->_vitesseActuelle . " km/h.";
@@ -115,11 +127,50 @@ class Voiture {
     public function getInfos() {
     }
 
+    // Exo14 **************************************************** */
+    public function call_autonomie_elec() {
+        if(method_exists($this, 'printAutonomie')) {
+            // $this->printAutonomie();
+        }
+    }
+
+
+    // *************************************************** */
+
 
     public function __toString() {
         return "Marque: " . $this->getMarque() . ", modèle: " . $this->getModele() . ", nbrPortes: " . $this->getNbrPortes() . ", vitesseActuelle: " . $this->getVitesseActuelle();
     }
 }
+
+
+
+
+//****************************************************** */
+// Exercice 14
+class VoitureElec extends Voiture {
+
+    private string $_autonomie;
+
+    public function __construct(string $marque, string $modele, int $nbrPortes, $autonomie) {
+        parent::__construct($marque, $modele, $nbrPortes);
+        $this->_autonomie = $autonomie;
+    }
+
+    public function getAutonomie() {
+        return $this->_autonomie;
+    }
+
+    public function setAutonomie($autonomie) {
+        $this->_autonomie = $autonomie;
+    }
+
+    public function printAutonomie() {
+        return "Cette voiture électrique possède une autonomie de " . $this->getAutonomie() . " km.";
+    }
+
+}
+//****************************************************** */
 
 
 ?>
