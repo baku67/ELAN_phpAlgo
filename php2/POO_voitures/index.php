@@ -4,6 +4,17 @@
 
 require "Voiture.php";
 
+
+    // (HS) Mini-jeu JS voiture ****************************
+    echo "<script src='script.js'></script>";
+    echo "<link href='style.css' rel='stylesheet'>";
+    echo "<script src='https://kit.fontawesome.com/698848973e.js' crossorigin='anonymous'></script>";
+    echo "<br><div style='margin-bottom: 3px; background-color: rgba(0,150,200,0.2); border:1px solid black; padding:10px 25px; border-radius: 4px; display:inline-flex;'><div id='carPathDiv'><i class='fa-solid fa-car-side' id='carIcon' style='color:rgba(213,13,13); font-size:150%;'></i>......................................................................................................................................</div><span style='letter-spacing:-7px;'><i class='fa-solid fa-flag-checkered' style='position:relative; bottom:3px;'></i><i class='fa-solid fa-flag-checkered' style='position:relative; top:3px;'></i></span></div>";
+    echo "<div id='parentNode'><button id='slowDownCarButton'><<</button><button id='initialStartUpCarButton'>Start</button><button id='speedUpCarButton'>>></button></div>";
+    // Fin mini-jeu voiture*
+
+
+
 $v1 = new Voiture("Peugeot", "408", 5);
 $v2 = new Voiture("Citroën", "C4", 3);
 $v3 = new Voiture("Fiat", "Multipla", 38);
@@ -100,54 +111,6 @@ echo "<br><br>";
 // Mini-jeu: Boutons de controle de la voiture (H-S: ajout ligne apres refresh page)
 echo "
 <style>
-    input[type=submit] {
-        cursor:pointer;
-    }
-    .buttonMiniJeu {
-        font-weight: bold;
-        padding: 5px 10px;
-        border-radius: 4px;
-        transition: all 0.3s;
-        border: 1px solid rgba(0,0,0,0.5);
-    }
-    .validateButton {
-        border: 2px solid rgba(14,235,174,1);
-    }
-    .cancelButton {
-        border: 2px solid rgba(235,45,14,0.7);
-    }
-    .validateButton:hover {
-        border-color: rgba(0,0,0,0);
-        background-color: rgba(14,235,174,0.8);
-    }
-    .cancelButton:hover {
-        border-color: rgba(0,0,0,0);
-        background-color: rgba(235,45,14,1);
-    }
-    .startAndStopButton {
-        border: 2px solid rgba(235,208,14,1);
-    }
-    .startAndStopButton:hover {
-        border-color: rgba(0,0,0,0);
-        background-color: rgba(235,208,14,1);
-    }
-    .animVitesse {
-        /* ! timeOut 400 sur le remove de la class */
-        animation: animVitesse 0.4s 0s forwards ease-in-out;
-    }
-    @keyframes animVitesse {
-        0% {
-            font-size: 100%;
-            color: black;
-        }
-        50% {
-            font-size: 110%; 
-            color: rgba(14,235,174,1);
-        }
-        100% {
-            font-size: 100%;
-            color: black;
-        }
 </style>";
 
 echo "<h2>Mini-jeu (H-S: ajout ligne apres refresh page):</h2><br><div style='width:50%; margin: 0 auto; justify-content:center; border:3px solid rgba(0,0,0,0.4); background-color: rgba(0,0,0,0.2);border-radius:5px; padding: 10px 35px;'>
@@ -194,17 +157,6 @@ else if (isset($_POST['slowDown'])) {
 
 
 
-// Animation petite voiture: (split sur la ligne puis replace adjacent?)
-echo "<script src='https://kit.fontawesome.com/698848973e.js' crossorigin='anonymous'></script>";
-echo "
-<script>
-setInterval(function() {
-    console.log('test');
-
-},2000)
-</script>";
-echo "<br><div id='carPathDiv'><i id='carIcon' class='fa-solid fa-car-side'></i>*************************************</div><br>";
-
 
 // Liste actions utilisateur:
-echo "<br><span style=\"color:red;\">2023-02-09 15:42:19:</span> " . $v5->demarrer();echo "<br><span style=\"color:red;\">2023-02-09 15:42:24:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:42:26:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:42:34:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:42:36:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:46:52:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();
+echo "<br><span style=\"color:red;\">2023-02-09 23:21:32:</span> " . $v5->demarrer();echo "<br><span style=\"color:red;\">2023-02-09 23:21:34:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();

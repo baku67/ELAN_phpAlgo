@@ -1,0 +1,62 @@
+input[type=submit] {
+    cursor:pointer;
+}
+.buttonMiniJeu {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+.validateButton {
+    border: 2px solid rgba(14,235,174,1);
+}
+.cancelButton {
+    border: 2px solid rgba(235,45,14,0.7);
+}
+.validateButton:hover {
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(14,235,174,0.8);
+}
+.cancelButton:hover {
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(235,45,14,1);
+}
+.startAndStopButton {
+    border: 2px solid rgba(235,208,14,1);
+}
+.startAndStopButton:hover {
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(235,208,14,1);
+}
+.animVitesse {
+    /* ! timeOut 400 sur le remove de la class */
+    animation: animVitesse 0.4s 0s forwards ease-in-out;
+}
+@keyframes animVitesse {
+    0% {
+        font-size: 100%;
+        color: black;
+    }
+    50% {
+        font-size: 110%; 
+        color: rgba(14,235,174,1);
+    }
+    100% {
+        font-size: 100%;
+        color: black;
+    }
+}
+#carIcon {
+}
+.fadeIn {
+    animation: fadeIn 0.2s 0s forwards ease;
+}
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
