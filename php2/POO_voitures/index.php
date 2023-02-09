@@ -96,8 +96,8 @@ echo "<br><br>";
 
 
 // ************************************************************************
-// Boutons de controle de la voiture 
-echo "<h2>Mini-jeu:</h2><br><div style='width:50%; margin: 0 auto; justify-content:center; border:3px solid rgba(255,0,0,0.4); background-color: rgba(255,0,0,0.2);border-radius:5px; padding: 10px 35px;'>
+// Mini-jeu: Boutons de controle de la voiture (H-S: ajout ligne apres refresh page)
+echo "<h2>Mini-jeu (H-S: ajout ligne apres refresh page):</h2><br><div style='width:50%; margin: 0 auto; justify-content:center; border:3px solid rgba(255,0,0,0.4); background-color: rgba(255,0,0,0.2);border-radius:5px; padding: 10px 35px;'>
     <form action='index.php' method='post'>
         <input type='submit' id='start' name='start' value='Démarrer/Stopper'>
         </form>
@@ -111,7 +111,8 @@ echo "<h2>Mini-jeu:</h2><br><div style='width:50%; margin: 0 auto; justify-conte
     ";
 if (isset($_POST['start'])) {
     if ($v5->getStatus() == true) {
-        echo $v5->stopper();
+        // header("Refresh:1");
+        // echo $v5->stopper();
 
         // Ajout de code brut dans le fichier
         $fp = fopen("index.php", "a");
@@ -120,7 +121,8 @@ if (isset($_POST['start'])) {
         // Refresh de la page avec nouvelle ligne 
     }
     else {
-        echo $v5->demarrer();
+        // header("Refresh:1");
+        // echo $v5->demarrer();
 
         // Ajout de code brut dans le fichier
         $fp = fopen("index.php", "a");
@@ -128,36 +130,35 @@ if (isset($_POST['start'])) {
         fclose($fp);
         // Refresh de la page avec nouvelle ligne 
     }
-    // header("Refresh:0");
 }
-if (isset($_POST['speedUp'])) {
-    echo $v5->accelerer($_POST['amountSpedUp']);
-    echo $v5->printVitesseActuelle();
+else if (isset($_POST['speedUp'])) {
+    // echo $v5->accelerer($_POST['amountSpedUp']);
+    // echo $v5->printVitesseActuelle();
 
     // Ajout de code brut dans le fichier
     $fp = fopen("index.php", "a");
     fwrite($fp, 'echo "<br>" . $v5->accelerer('.$_POST['amountSpedUp'].');');
     fclose($fp);
     // Refresh de la page avec nouvelle ligne 
-    // header("Refresh:0");
+    // header("Refresh:1");
 }
-if (isset($_POST['slowDown'])) {
-    echo $v5->accelerer($_POST['amountSpedUp']);
-    echo $v5->printVitesseActuelle();
+else if (isset($_POST['slowDown'])) {
+    // echo $v5->ralentir($_POST['amountSpedUp']);
+    // echo $v5->printVitesseActuelle();
 
     // Ajout de code brut dans le fichier
     $fp = fopen("index.php", "a");
     fwrite($fp, 'echo "<br>" . $v5->ralentir('.$_POST['amountSpedUp'].');');
     fclose($fp);
     // Refresh de la page avec nouvelle ligne 
-    // header("Refresh:0")
-;}
+    // header("Refresh:1");
+}
 
 function appendAction() {
-
 }
 // FIN Boutons de controle
 // *****************************************************************
 
 // Ajout des actions utilisateur:
-echo "<br>" . $v5->demarrer();echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->accelerer(10);
+echo "**************************************<br>";
+echo "<br>" . $v5->demarrer();echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->ralentir(10);echo "<br>" . $v5->ralentir(10);echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->accelerer(10);
