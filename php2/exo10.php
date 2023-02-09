@@ -1,7 +1,8 @@
 <?php
 
 echo
-    "<form>
+    "<h1>Exerice 10</h1><br>
+    <form>
         <label for='firstName'>Nom</label>
         <input id='firstName' name='firstName' type='text' placeholder='Entrez votre nom de famille...'><br>
         <label for='lastName'>Prénom</label>

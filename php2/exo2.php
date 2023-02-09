@@ -5,13 +5,14 @@ $capitales = array("France" => "Paris", "Allemagne" => "Berlin", "USA" => "Washi
 ksort($capitales);
 
 function afficherTableHTML($capitales) {
-    $finalOutput = "<table style='border:1px solid black;'>
-                <thead>
-                    <tr>
-                        <th colspan='2'>Tableau</th>
-                    </tr>
-                </thead>
-                <tbody>";
+    $finalOutput = "<h1>Exercice 2</h1>
+    <table style='border:1px solid black;'>
+        <thead>
+            <tr>
+                <th colspan='2'>Tableau</th>
+            </tr>
+        </thead>
+        <tbody>";
 
     foreach ($capitales as $capitale=>$value) {
         $capitaleCaps = strtoupper($capitale);

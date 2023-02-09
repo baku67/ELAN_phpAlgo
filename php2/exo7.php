@@ -4,7 +4,8 @@ $elements = array("Choix 1" => "checked", "Choix 2" => "notChecked", "Choix 3" =
 genererCheckbox($elements);
 
 function genererCheckbox($array) {
-    $finalOutput = "<fieldset style='display:flex; flex-direction:column; width:25%; margin:0 auto; text-align:center;'>";
+    $finalOutput = "<h1>Exerice 7</h1><br>
+    <fieldset style='display:flex; flex-direction:column; width:25%; margin:0 auto; text-align:center;'>";
 
     foreach ($array as $elem=>$value) {
 

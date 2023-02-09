@@ -4,11 +4,11 @@
 
 class Voiture {
     // propriétés
-    private string $_marque;
-    private string $_modele;
-    private int $_nbrPortes;
-    private int $_vitesseActuelle;
-    private bool $_demarred;
+    protected string $_marque;
+    protected string $_modele;
+    protected int $_nbrPortes;
+    protected int $_vitesseActuelle;
+    protected bool $_demarred;
     
     // déclaration du constructeur de la classe Voiture
     public function __construct(string $marque, string $modele, int $nbrPortes) {
@@ -73,8 +73,7 @@ class Voiture {
     }
 
 
-    // Fonction accélérer = décélerer si valeur négative
-    public function accelerer($amount) {
+    public function accelerer(int $amount) {
         if ($this->_demarred) {
             // if ($amount > 0) {
                 $vitesseActuelle = $this->getVitesseActuelle();
@@ -93,7 +92,7 @@ class Voiture {
         }
     }
 
-    public function ralentir($amount) {
+    public function ralentir(int $amount) {
         if ($this->_demarred) {
             $vitesseActuelle = $this->getVitesseActuelle();
             $this->setVitesseActuelle($vitesseActuelle - $amount);
@@ -121,22 +120,17 @@ class Voiture {
         return $result;
     }
 
-
-    public function getAllInfos() {
-    }
-    public function getInfos() {
-    }
-
     // Exo14 **************************************************** */
-    public function call_autonomie_elec() {
-        if(method_exists($this, 'printAutonomie')) {
-            // $this->printAutonomie();
+    public function getInfos() {
+        if($this->getStatus() === false) {
+            $status = "démarré";
+        }else {
+            $status = "à l'arrêt";
         }
+
+        return "<span style='text-decoration:underline;'>Voiture:</span> " . $this->getMarque() . " " . $this->getModele() . ", " . $this->getNbrPortes() . " portes. La voiture est " . $status . " et sa vitesse est de " . $this->getVitesseActuelle() . " km/h.";
     }
-
-
-    // *************************************************** */
-
+    // ********************************************************** */
 
     public function __toString() {
         return "Marque: " . $this->getMarque() . ", modèle: " . $this->getModele() . ", nbrPortes: " . $this->getNbrPortes() . ", vitesseActuelle: " . $this->getVitesseActuelle();
@@ -157,16 +151,26 @@ class VoitureElec extends Voiture {
         $this->_autonomie = $autonomie;
     }
 
-    public function getAutonomie() {
+    public function getAutonomie(): int {
         return $this->_autonomie;
     }
 
-    public function setAutonomie($autonomie) {
+    public function setAutonomie(int $autonomie) {
         $this->_autonomie = $autonomie;
     }
 
     public function printAutonomie() {
         return "Cette voiture électrique possède une autonomie de " . $this->getAutonomie() . " km.";
+    }
+
+    public function getInfos() {
+        if($this->getStatus() === false) {
+            $status = "démarré";
+        }else {
+            $status = "à l'arrêt";
+        }
+
+        return "<span style='text-decoration:underline;'>Voiture <span style='font-weight:bold; color:darkblue;'>électrique</span></span>: " . $this->getMarque() . " " . $this->getModele() . ", " . $this->getNbrPortes() . " portes. La voiture est " . $status . " et sa vitesse est de " . $this->getVitesseActuelle() . " km/h. En tant que voiture électrique, elle possède une autonomie de " . $this->getAutonomie() . " km.";
     }
 
 }

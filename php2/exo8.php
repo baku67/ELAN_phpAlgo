@@ -10,7 +10,7 @@ function repeatImg($link, $nbr) {
         $output .= "<img src='$link'>";
     }
 
-    echo $output;
+    echo "<h1>Exerice 8</h1><br>" . $output;
 }
 
 repeatImg($url, 4);

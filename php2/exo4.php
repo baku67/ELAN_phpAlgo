@@ -5,18 +5,19 @@ $capitales = array("France" => "Paris", "Allemagne" => "Berlin", "USA" => "Washi
 asort($capitales);
 
 function afficherTableHTML($capitales) {
-    $finalOutput = "<table style='border:1px solid black;'>
-                <thead>
-                    <tr>
-                        <th colspan='3'>Tableau</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr style='font-weight:bold;'>
-                    <td style='border:1px solid black;'>Pays</td>
-                    <td style='border:1px solid black;'>Capitale</td>
-                    <td style='border:1px solid black;'>Lien wiki</td>
-                </tr>";
+    $finalOutput = "<h1>Exercice 4</h1><br>
+    <table style='border:1px solid black;'>
+        <thead>
+            <tr>
+                <th colspan='3'>Tableau</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr style='font-weight:bold;'>
+            <td style='border:1px solid black;'>Pays</td>
+            <td style='border:1px solid black;'>Capitale</td>
+            <td style='border:1px solid black;'>Lien wiki</td>
+        </tr>";
 
     foreach ($capitales as $capitale=>$value) {
         $capitaleCaps = strtoupper($capitale);

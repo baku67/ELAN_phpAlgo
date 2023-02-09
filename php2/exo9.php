@@ -3,7 +3,8 @@
 $elements = array("Monsieur", "Madame", "Autre");
 
 function radioForm($array) {
-    $output = "<form style=''>";
+    $output = "<h1>Exerice 9</h1><br>
+    <fieldset style=''>";
 
     foreach ($array as $elem) {
         $output .=
@@ -11,7 +12,7 @@ function radioForm($array) {
         <input id='$elem' name='$elem' type='radio'><br>";
     }
 
-    $output .= "</form><script>document.getElementById('Autre').checked = true;</script>";
+    $output .= "</fieldset><script>document.getElementById('Autre').checked = true;</script>";
 
     echo $output;
 }

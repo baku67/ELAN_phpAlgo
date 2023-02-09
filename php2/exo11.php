@@ -13,7 +13,7 @@ function writeDate($inputDate) {
 
     $output = $dayOfWeek . " " . date('j', strtotime($inputDate)) . " " . $month . " " . date('Y', strtotime($inputDate));
     
-    return $output;
+    return "<h1>Exerice 11</h1><br>" . $output;
 }
 
 echo writeDate($input);
