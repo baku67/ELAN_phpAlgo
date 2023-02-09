@@ -74,6 +74,7 @@ foreach($arrayVoitures as $voiture) {
     echo "</div>";
 
     echo "<br><br>";
+    // Index/Numéro de voiture
     $i += 1;
 }
 echo "</div>";
@@ -97,68 +98,113 @@ echo "<br><br>";
 
 // ************************************************************************
 // Mini-jeu: Boutons de controle de la voiture (H-S: ajout ligne apres refresh page)
-echo "<h2>Mini-jeu (H-S: ajout ligne apres refresh page):</h2><br><div style='width:50%; margin: 0 auto; justify-content:center; border:3px solid rgba(255,0,0,0.4); background-color: rgba(255,0,0,0.2);border-radius:5px; padding: 10px 35px;'>
+echo "
+<style>
+    input[type=submit] {
+        cursor:pointer;
+    }
+    .buttonMiniJeu {
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: all 0.3s;
+        border: 1px solid rgba(0,0,0,0.5);
+    }
+    .validateButton {
+        border: 2px solid rgba(14,235,174,1);
+    }
+    .cancelButton {
+        border: 2px solid rgba(235,45,14,0.7);
+    }
+    .validateButton:hover {
+        border-color: rgba(0,0,0,0);
+        background-color: rgba(14,235,174,0.8);
+    }
+    .cancelButton:hover {
+        border-color: rgba(0,0,0,0);
+        background-color: rgba(235,45,14,1);
+    }
+    .startAndStopButton {
+        border: 2px solid rgba(235,208,14,1);
+    }
+    .startAndStopButton:hover {
+        border-color: rgba(0,0,0,0);
+        background-color: rgba(235,208,14,1);
+    }
+    .animVitesse {
+        /* ! timeOut 400 sur le remove de la class */
+        animation: animVitesse 0.4s 0s forwards ease-in-out;
+    }
+    @keyframes animVitesse {
+        0% {
+            font-size: 100%;
+            color: black;
+        }
+        50% {
+            font-size: 110%; 
+            color: rgba(14,235,174,1);
+        }
+        100% {
+            font-size: 100%;
+            color: black;
+        }
+</style>";
+
+echo "<h2>Mini-jeu (H-S: ajout ligne apres refresh page):</h2><br><div style='width:50%; margin: 0 auto; justify-content:center; border:3px solid rgba(0,0,0,0.4); background-color: rgba(0,0,0,0.2);border-radius:5px; padding: 10px 35px;'>
     <form action='index.php' method='post'>
-        <input type='submit' id='start' name='start' value='Démarrer/Stopper'>
+        <input type='submit' id='start' name='start' value='Démarrer/Stopper' class='startAndStopButton buttonMiniJeu'>
         </form>
         <form action='index.php' method='post'>
-            <div style='display:inline-flex;'><input id='speedUpRange' name='amountSpedUp' type='range' value='10' step='10'><span id='speedValue' style='margin:0 20px 0 10px;'></span></div>
-            <input type='submit' id='speedUp' name='speedUp' value='Accélérer'>
-            <input type='submit' id='slowDown' name='slowDown' value='Ralentir'>
+            <div style='display:inline-flex; border:1px solid rgba(127,127,127,0.5); border-radius:5px; background-color:rgba(127,127,127,0.2); padding:5px 0px; margin: 10px 5px;'><input id='speedUpRange' name='amountSpedUp' type='range' value='10' step='10'><span id='speedValue' style='margin:0 20px 0 10px;'></span></div>
+            <input type='submit' id='speedUp' name='speedUp' value='Accélérer' class='validateButton buttonMiniJeu'>
+            <input type='submit' id='slowDown' name='slowDown' value='Ralentir' class='cancelButton buttonMiniJeu'>
     </form></div>
     <script>document.getElementById('speedValue').innerHTML = document.getElementById('speedUpRange').value + ' km/h';</script>
-    <script>document.getElementById('speedUpRange').onchange = function() {document.getElementById('speedValue').innerHTML = document.getElementById('speedUpRange').value + ' km/h';}</script>
+    <script>document.getElementById('speedUpRange').onchange = function() {document.getElementById('speedValue').innerHTML = document.getElementById('speedUpRange').value + ' km/h'; document.getElementById('speedValue').classList.add('animVitesse'); setTimeout(function() {document.getElementById('speedValue').classList.remove('animVitesse') },400); }</script>
     ";
+
 if (isset($_POST['start'])) {
     if ($v5->getStatus() == true) {
-        // header("Refresh:1");
-        // echo $v5->stopper();
-
         // Ajout de code brut dans le fichier
         $fp = fopen("index.php", "a");
-        fwrite($fp, 'echo "<br>" . $v5->stopper();');
+        fwrite($fp, 'echo "<br><span style=\"color:red;\">' . date("Y-m-d H:i:s") . ':</span> " . $v5->stopper();');
         fclose($fp);
-        // Refresh de la page avec nouvelle ligne 
     }
     else {
-        // header("Refresh:1");
-        // echo $v5->demarrer();
-
         // Ajout de code brut dans le fichier
         $fp = fopen("index.php", "a");
-        fwrite($fp, 'echo "<br>" . $v5->demarrer();');
+        fwrite($fp, 'echo "<br><span style=\"color:red;\">' . date("Y-m-d H:i:s") . ':</span> " . $v5->demarrer();');
         fclose($fp);
-        // Refresh de la page avec nouvelle ligne 
     }
 }
 else if (isset($_POST['speedUp'])) {
-    // echo $v5->accelerer($_POST['amountSpedUp']);
-    // echo $v5->printVitesseActuelle();
-
     // Ajout de code brut dans le fichier
     $fp = fopen("index.php", "a");
-    fwrite($fp, 'echo "<br>" . $v5->accelerer('.$_POST['amountSpedUp'].');');
+    fwrite($fp, 'echo "<br><span style=\"color:red;\">' . date("Y-m-d H:i:s") . ':</span> " . $v5->accelerer('.$_POST['amountSpedUp'].') . " "  . $v5->printVitesseActuelle();');
     fclose($fp);
-    // Refresh de la page avec nouvelle ligne 
-    // header("Refresh:1");
 }
 else if (isset($_POST['slowDown'])) {
-    // echo $v5->ralentir($_POST['amountSpedUp']);
-    // echo $v5->printVitesseActuelle();
-
     // Ajout de code brut dans le fichier
     $fp = fopen("index.php", "a");
-    fwrite($fp, 'echo "<br>" . $v5->ralentir('.$_POST['amountSpedUp'].');');
+    fwrite($fp, 'echo "<br><span style=\"color:red;\">' . date("Y-m-d H:i:s") . ':</span> " . $v5->ralentir('.$_POST['amountSpedUp'].');');
     fclose($fp);
-    // Refresh de la page avec nouvelle ligne 
-    // header("Refresh:1");
-}
-
-function appendAction() {
 }
 // FIN Boutons de controle
 // *****************************************************************
 
-// Ajout des actions utilisateur:
-echo "**************************************<br>";
-echo "<br>" . $v5->demarrer();echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->ralentir(10);echo "<br>" . $v5->ralentir(10);echo "<br>" . $v5->accelerer(10);echo "<br>" . $v5->accelerer(10);
+
+
+// Animation petite voiture: (split sur la ligne puis replace adjacent?)
+echo "<script src='https://kit.fontawesome.com/698848973e.js' crossorigin='anonymous'></script>";
+echo "
+<script>
+setInterval(function() {
+    console.log('test');
+
+},2000)
+</script>";
+echo "<br><div id='carPathDiv'><i id='carIcon' class='fa-solid fa-car-side'></i>*************************************</div><br>";
+
+
+// Liste actions utilisateur:
+echo "<br><span style=\"color:red;\">2023-02-09 15:42:19:</span> " . $v5->demarrer();echo "<br><span style=\"color:red;\">2023-02-09 15:42:24:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:42:26:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:42:34:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:42:36:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();echo "<br><span style=\"color:red;\">2023-02-09 15:46:52:</span> " . $v5->accelerer(10) . " "  . $v5->printVitesseActuelle();
