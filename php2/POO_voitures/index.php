@@ -16,6 +16,7 @@ require "Voiture.php";
     // - Démarrage --> vitesse augmente jusqu'a ~20km/h (supérieur à vitesse mini) en ~1s 
     // - Stopper voiture possible que si vitesse mini atteinte
     // - Le fameux "Pour aller plus loin": Ajouter des obstacles (encore plus loin: aléatoires) sur le path, bouton tir au corp-à-corp ou saut jsp
+    // - Custom icon png (pour street): https://stackoverflow.com/questions/38307278/adding-custom-icon-to-html-page
 
     echo "<script src='script.js'></script>";
     echo "<link href='style.css' rel='stylesheet'>";

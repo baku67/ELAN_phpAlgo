@@ -13,9 +13,11 @@ window.onload = function() {
                     document.getElementById('carPathDiv').innerHTML = newString;
                 }
                 else {
+                    // WIN
                     document.getElementById('miniJeuResult').style.opacity = "1";
                     stop = true;
                     document.getElementById('carSmoke').replaceWith(".....");
+                    document.getElementById('landscapeDiv').classList.add('paused');
                 }
             }
             demarrer();

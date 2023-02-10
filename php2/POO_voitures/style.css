@@ -108,7 +108,7 @@ input[type=submit] {
     z-index: 1;
     font-size: 200%;
     display: inline-block;
-    max-width: 656px;
+    max-width: 630px;
     opacity: 0.6;
 
     overflow: hidden;
@@ -119,14 +119,14 @@ input[type=submit] {
     width: max-content;
 }
 .landscapeDivMove {
-    animation: landscapeMove 100s 0s infinite forwards ease;
+    animation: landscapeMove 200s 0s infinite forwards ease;
     right: 0px;
 }
 .paused {
     animation-play-state: paused;
 }
 .acceleratededed {
-    animation-duration: 50s;
+    animation-duration: 100s;
 }
 @keyframes landscapeMove {
     from {
@@ -167,8 +167,9 @@ input[type=submit] {
 }
 #stopCarButton {
     font-weight: bold;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(255, 75, 96);
     border-color: rgb(255, 0, 0);
+    color: whitesmoke;
 
 
     width:100px;
