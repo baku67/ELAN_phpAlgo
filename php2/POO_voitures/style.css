@@ -119,14 +119,14 @@ input[type=submit] {
     width: max-content;
 }
 .landscapeDivMove {
-    animation: landscapeMove 200s 0s infinite forwards ease;
+    animation: landscapeMove 150s 0s infinite forwards ease;
     right: 0px;
 }
 .paused {
     animation-play-state: paused;
 }
 .acceleratededed {
-    animation-duration: 100s;
+    animation-duration: 75s;
 }
 @keyframes landscapeMove {
     from {
@@ -142,12 +142,23 @@ input[type=submit] {
 
 .fa-flag-checkered {
     text-shadow: -1px 0 #01ff99, 1px -1px 0 #01ff99, -1px 1px 0 #01ff99, 1px 1px 0 #01ff99;
+
 }
 .fa-industry {
     /* Icone décalée */
     position: relative;
     top: 2px;
     margin: 0 1px;
+}
+.icon {
+    background: url('streetLampFit1(2).png');
+    position: relative;
+    top:3px;
+    height: 30px;
+    width: 8px;
+    display: block;
+    background-repeat: no-repeat;
+    /* Other styles here */
 }
 
 .miniJeuButton {
