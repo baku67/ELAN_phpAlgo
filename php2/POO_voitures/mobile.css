@@ -1,0 +1,10 @@
+@media (max-width: 640px) {
+    
+    #underRoad {
+        position: relative;
+        bottom: 24px;
+        left: 22px;
+        font-size: 30%;
+    }
+
+}

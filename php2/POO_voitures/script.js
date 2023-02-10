@@ -32,6 +32,8 @@ window.onload = function() {
         if (i >= 50) {
             i = i - 51;
         }
+        // Accélération de l'anim landscape  ~  d é g u e u l a s s e  ~
+        document.getElementById('landscapeDiv').classList.add('acceleratededed');
     }
     // Plus galere de ralentir pour le fun (ON NE PEUT ARRETER QUE SI <10km/h)
     function ralentir() {
@@ -42,28 +44,28 @@ window.onload = function() {
     }
 
 
-    // Bouton pour *RE*démarrer
+    // Bouton pour *RE*démarrer (marche pas: rework demarrer())
     var buttonStart = document.createElement('button');
     buttonStart.innerText = 'Start';
     buttonStart.id = 'startUpCarButton';
     buttonStart.classList.add('miniJeuButton');
     buttonStart.addEventListener('click', function() {
         stop = false;
-        // replace 
         document.getElementById('startUpCarButton').parentNode.replaceChild(buttonStop, document.getElementById('startUpCarButton'));
     });
 
-    // Bouton Stop
+    // Bouton Stop 
     var buttonStop = document.createElement('button');
     buttonStop.innerText = 'Stop';
     buttonStop.id = 'stopCarButton';
     buttonStop.classList.add('miniJeuButton');
     buttonStop.addEventListener('click', function() {
-        stop = true;
         // Fin anim landscape   ~   d é g u e u l a s s e    ~ 
         // document.getElementById('landscapeDiv').classList.remove('landscapeDivMove');
+        stop = true;
+        // Pause anim:
         document.getElementById('landscapeDiv').classList.add('paused');
-        // stop();
+
         document.getElementById('stopCarButton').parentNode.replaceChild(buttonStart, document.getElementById('stopCarButton'));
     });
 
