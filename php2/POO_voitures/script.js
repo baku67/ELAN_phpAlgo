@@ -53,12 +53,16 @@ window.onload = function() {
         document.getElementById('startUpCarButton').parentNode.replaceChild(buttonStop, document.getElementById('startUpCarButton'));
     });
 
+    // Bouton Stop
     var buttonStop = document.createElement('button');
     buttonStop.innerText = 'Stop';
     buttonStop.id = 'stopCarButton';
     buttonStop.classList.add('miniJeuButton');
     buttonStop.addEventListener('click', function() {
         stop = true;
+        // Fin anim landscape   ~   d é g u e u l a s s e    ~ 
+        // document.getElementById('landscapeDiv').classList.remove('landscapeDivMove');
+        document.getElementById('landscapeDiv').classList.add('paused');
         // stop();
         document.getElementById('stopCarButton').parentNode.replaceChild(buttonStart, document.getElementById('stopCarButton'));
     });

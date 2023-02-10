@@ -107,7 +107,8 @@ input[type=submit] {
     left: 20px;
     z-index: 1;
     font-size: 200%;
-    display: inline-flex;
+    display: inline-block;
+    max-width: 656px;
     opacity: 0.6;
 
     overflow: hidden;
@@ -120,6 +121,9 @@ input[type=submit] {
 .landscapeDivMove {
     animation: landscapeMove 100s 0s infinite forwards ease;
     right: 0px;
+}
+.paused {
+    animation-play-state: paused;
 }
 @keyframes landscapeMove {
     from {
