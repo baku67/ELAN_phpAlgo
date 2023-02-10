@@ -1,42 +1,21 @@
 window.onload = function() {
 
-    // Bouton pour *RE*démarrer
-    var buttonStart = document.createElement('button');
-    buttonStart.innerText = 'Start';
-    buttonStart.id = 'startUpCarButton';
-    buttonStart.addEventListener('click', function() {
-        stop = false;
-        // replace 
-        document.getElementById('startUpCarButton').parentNode.replaceChild(buttonStop, document.getElementById('startUpCarButton'));
-    });
-
-    var buttonStop = document.createElement('button');
-    buttonStop.innerText = 'Stop';
-    buttonStop.id = 'stopCarButton';
-    buttonStop.addEventListener('click', function() {
-        stop = true;
-        document.getElementById('stopCarButton').parentNode.replaceChild(buttonStart, document.getElementById('stopCarButton'));
-    });
-
-
     var i = 500;
     var stop = 'false';
+
     function demarrer() {
-        
         setTimeout(() => {
             if (stop == 'false') {
                 var string = document.getElementById('carPathDiv').innerHTML;
                 var newString = '.' + string.substring(0, string.length -1);
                 document.getElementById('carPathDiv').innerHTML = newString;
-        
-                // Modifier ici le delai tick 
-                i = i;
             }
             demarrer();
-            
         }, i);
-        
+    }
 
+    function stop() {
+        i = 99999999;
     }
 
     // TODO: Pour accelerer de plus en plus en restant appuyé sur le bouton: https://stackoverflow.com/questions/40573922/click-and-hold-event-listener-with-javascript
@@ -53,6 +32,28 @@ window.onload = function() {
             i = i + 10;
         }
     }
+
+
+    // Bouton pour *RE*démarrer
+    var buttonStart = document.createElement('button');
+    buttonStart.innerText = 'Start';
+    buttonStart.id = 'startUpCarButton';
+    buttonStart.addEventListener('click', function() {
+        stop = false;
+        // replace 
+        document.getElementById('startUpCarButton').parentNode.replaceChild(buttonStop, document.getElementById('startUpCarButton'));
+    });
+
+    var buttonStop = document.createElement('button');
+    buttonStop.innerText = 'Stop';
+    buttonStop.id = 'stopCarButton';
+    buttonStop.addEventListener('click', function() {
+        stop = true;
+        // stop();
+        document.getElementById('stopCarButton').parentNode.replaceChild(buttonStart, document.getElementById('stopCarButton'));
+    });
+
+
     document.getElementById('speedUpCarButton').addEventListener('click', function() {
         accelerer();
     });

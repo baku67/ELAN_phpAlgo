@@ -9,7 +9,7 @@ require "Voiture.php";
     echo "<script src='script.js'></script>";
     echo "<link href='style.css' rel='stylesheet'>";
     echo "<script src='https://kit.fontawesome.com/698848973e.js' crossorigin='anonymous'></script>";
-    echo "<br><div style='margin-bottom: 3px; background-color: rgba(0,150,200,0.2); border:1px solid black; padding:10px 25px; border-radius: 4px; display:inline-flex;'><div id='carPathDiv'><i class='fa-solid fa-car-side' id='carIcon' style='color:rgba(213,13,13); font-size:150%;'></i>......................................................................................................................................</div><span style='letter-spacing:-7px;'><i class='fa-solid fa-flag-checkered' style='position:relative; bottom:3px;'></i><i class='fa-solid fa-flag-checkered' style='position:relative; top:3px;'></i></span></div>";
+    echo "<br><div style='margin-bottom: 3px; background-color: rgba(0,150,200,0.2); border:1px solid black; padding:10px 25px; border-radius: 4px; display:inline-flex;'><div id='carPathDiv'><i class='fa-solid fa-car-side' id='carIcon' style='color:rgba(213,13,13); font-size:150%;'></i>......................................................................................................................................</div><span style='letter-spacing:-7px;'><i class='fa-solid fa-flag-checkered' style='position:relative; bottom:-2px;'></i><i class='fa-solid fa-flag-checkered' style='position:relative; top:10px;'></i></span></div><span style='position:relative; bottom:26px; left:22px;'>&nbsp;..............................................................................................................................................</span>";
     echo "<div id='parentNode'><button id='slowDownCarButton'><<</button><button id='initialStartUpCarButton'>Start</button><button id='speedUpCarButton'>>></button></div>";
     // Fin mini-jeu voiture*
 
@@ -109,10 +109,6 @@ echo "<br><br>";
 
 // ************************************************************************
 // Mini-jeu: Boutons de controle de la voiture (H-S: ajout ligne apres refresh page)
-echo "
-<style>
-</style>";
-
 echo "<h2>Mini-jeu (H-S: ajout ligne apres refresh page):</h2><br><div style='width:50%; margin: 0 auto; justify-content:center; border:3px solid rgba(0,0,0,0.4); background-color: rgba(0,0,0,0.2);border-radius:5px; padding: 10px 35px;'>
     <form action='index.php' method='post'>
         <input type='submit' id='start' name='start' value='Démarrer/Stopper' class='startAndStopButton buttonMiniJeu'>
