@@ -49,6 +49,26 @@ input[type=submit] {
 }
 #carIcon {
 }
+#carSmoke {
+    opacity: 0;
+    transform:rotate(180deg);
+    color: grey;
+}
+.cloudAnim {
+    opacity: 1;
+    animation: blinking 1s 0s infinite ease;
+}
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 .fadeIn {
     animation: fadeIn 0.2s 0s forwards ease;
 }

@@ -5,10 +5,18 @@ window.onload = function() {
 
     function demarrer() {
         setTimeout(() => {
-            if (stop == 'false') {
-                var string = document.getElementById('carPathDiv').innerHTML;
-                var newString = '.' + string.substring(0, string.length -1);
-                document.getElementById('carPathDiv').innerHTML = newString;
+            if (stop == 'false') {  
+                let pathLength = document.getElementById('carPathDiv').innerHTML.length;
+                if (document.getElementById('carPathDiv').innerHTML.charAt(pathLength-1) == ".") {
+                    var string = document.getElementById('carPathDiv').innerHTML;
+                    var newString = '.' + string.substring(0, string.length -1);
+                    document.getElementById('carPathDiv').innerHTML = newString;
+                }
+                else {
+                    document.getElementById('miniJeuResult').style.opacity = "1";
+                    stop = true;
+                    document.getElementById('carSmoke').replaceWith(".....");
+                }
             }
             demarrer();
         }, i);
@@ -59,6 +67,8 @@ window.onload = function() {
     });
     document.getElementById('initialStartUpCarButton').addEventListener('click', function() {
         demarrer();
+        document.getElementById('carSmoke').style.opacity = "1";
+        document.getElementById('carSmoke').classList.add('cloudAnim');
         document.getElementById('initialStartUpCarButton').parentNode.replaceChild(buttonStop, document.getElementById('initialStartUpCarButton'));
     });
     document.getElementById('slowDownCarButton').addEventListener('click', function() {
