@@ -52,7 +52,12 @@ class Voiture {
         $this->_nbrPortes = $nbrPortes;
     }
     public function setVitesseActuelle(int $vitesseActuelle) {
-        $this->_vitesseActuelle = $vitesseActuelle;
+        if ($vitesseActuelle >= 0) {
+            $this->_vitesseActuelle = $vitesseActuelle;
+        }
+        else {
+            $this->_vitesseActuelle = 0;
+        }
     }
     public function setStatus(bool $status) {
         $this->_demarred = $status;
@@ -95,6 +100,10 @@ class Voiture {
     public function ralentir(int $amount) {
         if ($this->_demarred) {
             $vitesseActuelle = $this->getVitesseActuelle();
+            // Si l'utilisateur veut freiner "plus" que la vitesse actuelle, il freine de l'équivelent:
+            if ($amount > $this->getVitesseActuelle()) {
+                $amount = $this->getVitesseActuelle();
+            }
             $this->setVitesseActuelle($vitesseActuelle - $amount);
             return "Le véhicule " . $this->getMarque() . " " . $this->getModele() . " décélère de " . $amount . " km/h.";
         }
