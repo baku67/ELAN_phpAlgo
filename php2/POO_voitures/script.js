@@ -71,6 +71,7 @@ window.onload = function() {
         demarrer();
         document.getElementById('carSmoke').style.opacity = "1";
         document.getElementById('carSmoke').classList.add('cloudAnim');
+        document.getElementById('landscapeDiv').classList.add('landscapeDivMove');
         document.getElementById('initialStartUpCarButton').parentNode.replaceChild(buttonStop, document.getElementById('initialStartUpCarButton'));
     });
     document.getElementById('slowDownCarButton').addEventListener('click', function() {

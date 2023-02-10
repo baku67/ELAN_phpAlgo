@@ -101,18 +101,38 @@ input[type=submit] {
     /* padding:10px 25px;  */
     padding: 30px 25px 10px 25px;
 }
-#landscapeDiv {
-    /* Il faudrait pouvoir mettre des letter-spacing aléatoire, fonction qui génère le landscape*/
+#wrapper {
     position: relative;
     top: 47px;
     left: 20px;
     z-index: 1;
     font-size: 200%;
-    width: 643px;
     display: inline-flex;
     opacity: 0.6;
 
+    overflow: hidden;
 }
+#landscapeDiv {
+    /* Il faudrait pouvoir mettre des letter-spacing aléatoire, fonction qui génère le landscape*/
+    position: relative;
+    width: max-content;
+}
+.landscapeDivMove {
+    animation: landscapeMove 100s 0s infinite forwards ease;
+    right: 0px;
+}
+@keyframes landscapeMove {
+    from {
+        right: 0px;
+    }
+    to {
+        right: 2000px;
+    }
+}
+/* .landscapeDivMoveTry2 {
+    animation: landscapeMove duration timing-function delay iteration-count direction fill-mode;
+} */
+
 .fa-flag-checkered {
     text-shadow: -1px 0 #01ff99, 1px -1px 0 #01ff99, -1px 1px 0 #01ff99, 1px 1px 0 #01ff99;
 }
