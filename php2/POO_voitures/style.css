@@ -143,6 +143,12 @@ input[type=submit] {
 .fa-flag-checkered {
     text-shadow: -1px 0 #01ff99, 1px -1px 0 #01ff99, -1px 1px 0 #01ff99, 1px 1px 0 #01ff99;
 }
+.fa-industry {
+    /* Icone décalée */
+    position: relative;
+    top: 2px;
+    margin: 0 1px;
+}
 
 .miniJeuButton {
     padding: 10px 20px;
