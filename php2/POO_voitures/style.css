@@ -48,6 +48,9 @@ input[type=submit] {
     }
 }
 #carIcon {
+    color:rgba(213,13,13); 
+    font-size:150%;
+    text-shadow: -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 #carSmoke {
     opacity: 0;
@@ -79,4 +82,81 @@ input[type=submit] {
     to {
         opacity:1;
     }
+}
+
+#miniJeuDiv1 {
+    margin-bottom: 3px; 
+    background-color: rgba(0,150,200,0.2); 
+    border:1px solid black; 
+    border-radius: 4px; 
+    display:inline-flex;
+
+    /* Pour afficher la voiture devant le landscape */
+    position: relative;
+    z-index: 999;
+
+    /* Bloqué pour le landscape */
+    width: 650px;
+
+    /* padding:10px 25px;  */
+    padding: 30px 25px 10px 25px;
+}
+#landscapeDiv {
+    /* Il faudrait pouvoir mettre des letter-spacing aléatoire, fonction qui génère le landscape*/
+    position: relative;
+    top: 47px;
+    left: 20px;
+    z-index: 1;
+    font-size: 200%;
+    width: 643px;
+    display: inline-flex;
+    opacity: 0.6;
+
+}
+.fa-flag-checkered {
+    text-shadow: -1px 0 #01ff99, 1px -1px 0 #01ff99, -1px 1px 0 #01ff99, 1px 1px 0 #01ff99;
+}
+
+.miniJeuButton {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Font Awesome 6 Free';
+    transition: all 0.3s;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#initialStartUpCarButton, #startUpCarButton {
+    font-weight: bold;
+    background-color: rgba(255, 255, 0, 0.5);
+    border-color: rgb(212, 212, 1);
+
+    width:100px;
+}
+#initialStartUpCarButton:hover, #startUpCarButton:hover {
+    background-color: rgba(255, 255, 0, 1);
+    border-color: rgb(150, 150, 0);
+}
+#stopCarButton {
+    font-weight: bold;
+    background-color: rgb(255, 0, 0);
+    border-color: rgb(255, 0, 0);
+
+
+    width:100px;
+}
+#slowDownCarButton {
+    background-color: rgba(255, 66, 129, 0.5);
+    border-color: rgba(255, 0, 0, 0.5);
+}
+#slowDownCarButton:hover {
+    background-color: rgba(255, 66, 129, 1);
+}
+#speedUpCarButton {
+    background-color: rgba(0, 255, 98, 0.5);
+    border-color: rgb(0, 255, 98);
+}
+#speedUpCarButton:hover {
+    background-color: rgba(0, 255, 98, 1);
 }

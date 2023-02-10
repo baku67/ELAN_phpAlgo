@@ -46,6 +46,7 @@ window.onload = function() {
     var buttonStart = document.createElement('button');
     buttonStart.innerText = 'Start';
     buttonStart.id = 'startUpCarButton';
+    buttonStart.classList.add('miniJeuButton');
     buttonStart.addEventListener('click', function() {
         stop = false;
         // replace 
@@ -55,6 +56,7 @@ window.onload = function() {
     var buttonStop = document.createElement('button');
     buttonStop.innerText = 'Stop';
     buttonStop.id = 'stopCarButton';
+    buttonStop.classList.add('miniJeuButton');
     buttonStop.addEventListener('click', function() {
         stop = true;
         // stop();

@@ -6,11 +6,26 @@ require "Voiture.php";
 
 
     // (HS) Mini-jeu JS voiture ****************************
+    // TODO: 
+    // - Voir pour reduire la taille des points (initiaux + ceux incrémenter au début de la ligne) pour smoother le déplacement (revoir les paramètres de la fonction tick ducoup)
+    // - Défilement landscape selon vitesse voiture
+    // - Fonction de génération du landscape (ajouter des icone fontAwesome 'buildings'), letter-spacing aléatoires?/espaced vides, arbres, lampadaires sur un autre plan!, etc... )
+    // - "Choose your challenger" (icon + couleur) ingame ou avant 
+    // - Eventlistener "mouse-down" sur les pédales d'accélération/freins
+    // - Systeme de compteur de vitesse km/h
+    // - Démarrage --> vitesse augmente jusqu'a ~20km/h (supérieur à vitesse mini) en ~1s 
+    // - Stopper voiture possible que si vitesse mini atteinte
+    // - Le fameux "Pour aller plus loin": Ajouter des obstacles (encore plus loin: aléatoires) sur le path, bouton tir au corp-à-corp ou saut jsp
+
     echo "<script src='script.js'></script>";
     echo "<link href='style.css' rel='stylesheet'>";
     echo "<script src='https://kit.fontawesome.com/698848973e.js' crossorigin='anonymous'></script>";
-    echo "<br><div style='margin-bottom: 3px; background-color: rgba(0,150,200,0.2); border:1px solid black; padding:10px 25px; border-radius: 4px; display:inline-flex;'><div id='carPathDiv'><i id='carSmoke' class='fa-brands fa-cloudversify'></i><i class='fa-solid fa-car-side' id='carIcon' style='color:rgba(213,13,13); font-size:150%;'></i>......................................................................................................................................</div><span style='letter-spacing:-7px;'><i class='fa-solid fa-flag-checkered' style='position:relative; bottom:-2px;'></i><i class='fa-solid fa-flag-checkered' style='position:relative; top:10px;'></i></span></div><span style='position:relative; bottom:26px; left:22px;'>&nbsp;....................................................................................................................................................</span>";
-    echo "<div id='parentNode'><button id='slowDownCarButton'><<</button><button id='initialStartUpCarButton'>Start</button><button id='speedUpCarButton'>>></button><span id='miniJeuResult' style='opacity:0; font-size:200%; color:white; background-color:#12c784; padding:5px 15px; border-radius:5px; border:1px solid #418f72;  margin: 5px 20px;'>WIN !</span></div>";
+
+    // Landscape mini-jeu (temporaire: faire une fonction pour générer aléatoirement (icon fontAwesome 'buildings', letter-spacing aléatoires, opacity aléatoire ou ajouter une 3eme profondeur de champ, etc):
+    echo "<div id='landscapeDiv'><i class='fa-solid fa-building'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i><i class='fa-solid fa-building'></i><i class='fa-solid fa-city'></i></div>";
+
+    echo "<br><div id='miniJeuDiv1'><div id='carPathDiv'><i id='carSmoke' class='fa-brands fa-cloudversify'></i><i class='fa-solid fa-car-side' id='carIcon'></i>......................................................................................................................................</div><span style='letter-spacing:-7px;'><i class='fa-solid fa-flag-checkered' style='position:relative; bottom:-2px;'></i><i class='fa-solid fa-flag-checkered' style='position:relative; top:10px;'></i></span></div><br><span style='position:relative; bottom:26px; left:22px;'>&nbsp;....................................................................................................................................................</span>";
+    echo "<div id='parentNode'><button id='slowDownCarButton' class='miniJeuButton'><i class='fa-solid fa-backward'></i></button><button id='initialStartUpCarButton' class='miniJeuButton'>Start</button><button id='speedUpCarButton' class='miniJeuButton'><i class='fa-solid fa-forward'></i></button><span id='miniJeuResult' style='opacity:0; font-size:200%; color:white; background-color:#12c784; padding:5px 15px; border-radius:5px; border:1px solid #418f72;  margin: 5px 20px;'>WIN !</span></div>";
     // Fin mini-jeu voiture*
 
 
